@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Logged</title>
-  </head>
-  <body>
-    <h1>You are logged in</h1>
-    <a href="/user/profile">Profile</a>
-    <a href="/user/profile/settings">Settings</a>
-    <a href="/auth/logout">Logout</a>
-  </body>
-</html>
+<section class="index-page">
+  {{#if photos}}
+  <img class="avatar" src={{photos}} alt={{name}}>
+  {{else}}
+  <p>Error: User photo not found</p>
+  {{/if}}
+
+  <h1>Hello {{name}}!</h1>
+
+  <a href="/user/profile">Profile</a>
+  <a href="/user/profile/settings">Settings</a>
+  <a href="/auth/logout">Logout</a>
+</section>
+<p class="success">
+  You have been successfully logged in!
+</p>

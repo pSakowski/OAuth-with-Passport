@@ -6,11 +6,15 @@ const checkAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
+  console.log(req.user)
   res.redirect('/user/no-permission');
 };
 
 router.get('/logged', checkAuthenticated, (req, res) => {
-  res.render('logged');
+  res.render('logged', {
+    name: req.user.displayName,
+    photos: req.user.photos[0].value,
+  });
 });
 
 router.get('/no-permission', (req, res) => {
